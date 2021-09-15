@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nspeedy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/09 13:35:37 by nspeedy           #+#    #+#             */
-/*   Updated: 2021/09/15 11:31:24 by nspeedy          ###   ########.fr       */
+/*   Created: 2021/09/14 17:58:45 by nspeedy           #+#    #+#             */
+/*   Updated: 2021/09/14 18:17:35 by nspeedy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-int	ft_strlen(const char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	count;
+	size_t	slen1;
+	size_t	slen2;
+	char	*dest;
 
-	count = 0;
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	slen1 = ft_strlen(s1);
+	slen2 = ft_strlen(s2);
+	dest = (char *)malloc(sizeof(char) + (slen1 + slen2 + 1));
+	if (!dest)
+		return (0);
+	ft_memcpy(dest, s1, slen1);
+	ft_memcpy(dest + slen1, s2, slen2);
+	dest[slen1 + slen2] = '\0';
+	return (dest);
 }
