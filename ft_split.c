@@ -6,12 +6,11 @@
 /*   By: nspeedy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 11:21:06 by nspeedy           #+#    #+#             */
-/*   Updated: 2021/09/24 17:44:40 by nspeedy          ###   ########.fr       */
+/*   Updated: 2021/09/25 14:15:01 by nspeedy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
-#include	<stdio.h>
 
 static int	ft_wordlen(char const *s, char c)
 {

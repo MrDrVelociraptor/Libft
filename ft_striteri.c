@@ -1,45 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nspeedy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 13:07:43 by nspeedy           #+#    #+#             */
-/*   Updated: 2021/09/27 12:14:04 by nspeedy          ###   ########.fr       */
+/*   Created: 2021/09/27 13:40:17 by nspeedy           #+#    #+#             */
+/*   Updated: 2021/09/27 13:49:11 by nspeedy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-static size_t	ft_isspace(char c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	if ((c >= 9 && c <= 13) || c == ' ')
-		return (1);
-	return (0);
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
-
-int	ft_atoi(const char *str)
-{
-	int	result;
-	int	flag;
-
-	result = 0;
-	flag = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-		{
-			flag *= -1;
-		}
-		str++;
-	}
-	while (ft_isdigit(*str))
-	{
-		result *= 10;
-		result += *str++ - '0';
-	}
-	return (result * flag);
-}	

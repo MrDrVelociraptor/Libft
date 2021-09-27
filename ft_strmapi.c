@@ -1,45 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nspeedy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/14 13:07:43 by nspeedy           #+#    #+#             */
-/*   Updated: 2021/09/27 12:14:04 by nspeedy          ###   ########.fr       */
+/*   Created: 2021/09/27 13:29:11 by nspeedy           #+#    #+#             */
+/*   Updated: 2021/09/27 13:37:59 by nspeedy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
 
-static size_t	ft_isspace(char c)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if ((c >= 9 && c <= 13) || c == ' ')
-		return (1);
-	return (0);
+	char	*result;
+	size_t	len;
+	size_t	i;
+
+	len = ft_strlen(s);
+	result = (char *)malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (0);
+	i = 0;
+	while (i < len)
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
+	result[len] = '\0';
+	return (result);
 }
-
-int	ft_atoi(const char *str)
-{
-	int	result;
-	int	flag;
-
-	result = 0;
-	flag = 1;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-		{
-			flag *= -1;
-		}
-		str++;
-	}
-	while (ft_isdigit(*str))
-	{
-		result *= 10;
-		result += *str++ - '0';
-	}
-	return (result * flag);
-}	
