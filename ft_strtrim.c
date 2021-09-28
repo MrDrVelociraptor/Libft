@@ -6,7 +6,7 @@
 /*   By: nspeedy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/16 10:32:48 by nspeedy           #+#    #+#             */
-/*   Updated: 2021/09/16 10:45:24 by nspeedy          ###   ########.fr       */
+/*   Updated: 2021/09/28 17:30:13 by nspeedy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	char	*trimstr;
 
+	if (!s1 || !set)
+		return (0);
 	while (*s1 && ft_strchr(set, *s1) != 0)
 		s1++;
 	len = ft_strlen(s1);
@@ -25,7 +27,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	trimstr = (char *)malloc(sizeof(char) * (len + 1));
 	if (!trimstr)
 		return (0);
-	ft_memcpy(trimstr, s1, len);
-	trimstr[len] = '\0';
+	ft_strlcpy(trimstr, s1, len + 1);
 	return (trimstr);
 }
