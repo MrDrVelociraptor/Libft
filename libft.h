@@ -5,6 +5,12 @@
 # include <string.h>
 # include <unistd.h>
 
+typedef struct s_list
+{
+	void			*context;
+	struct s_list	*next;
+}				t_list;
+
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
 int		ft_isalnum(int c);

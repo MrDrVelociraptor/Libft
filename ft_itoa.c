@@ -6,12 +6,11 @@
 /*   By: nspeedy <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/24 17:58:46 by nspeedy           #+#    #+#             */
-/*   Updated: 2021/09/28 17:00:59 by nspeedy          ###   ########.fr       */
+/*   Updated: 2021/09/29 10:14:48 by nspeedy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"libft.h"
-#include	<stdio.h>
 
 static size_t	ft_numnum(int n)
 {
